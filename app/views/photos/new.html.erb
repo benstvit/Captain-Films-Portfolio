@@ -1,0 +1,11 @@
+<div class='form-container'>
+  <h2>Create a new restaurant</h2>
+  <%= simple_form_for @photo do |f| %>
+    <%= f.input :title, label: "Photo title" %>
+    <%= f.input :location, label: "Where the photo was taken" %>
+    <%= f.input :category, collection: ['By the Seas','Here, There & Everywhere', 'Portraits', 'Live Music', 'Wild Life'], as: :check_boxes %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit 'Enregistrer nouvelle photo', class: 'btn btn-success' %>
+  <% end %>
+</div>
