@@ -1,0 +1,32 @@
+.photos-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.photo-container {
+  display: flex;
+}
+
+.photo img {
+  margin-top: 10px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.photo-description ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+  opacity: 0%;
+  transition: all 0,1s;
+}
+
+.photo-description ul .active {
+  opacity: 100%;
+}

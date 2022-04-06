@@ -1,12 +1,14 @@
 <div class="photos-container">
   <% @photos.each do |photo| %>
-    <div class="photo-container">
+    <div class="photo-container" data-controller='gallery'>
       <div class="photo">
         <%= cl_image_tag(photo.image.key) %>
         <div class="photo-description">
-          <%= photo.title %>
-          <%= '🌏' photo.location %>
-          <%= photo.description %>
+          <ul>
+            <li><h3><%= photo.title %></h3></li>
+            <li><%= photo.location %></li>
+            <li class='quote'><%= photo.description %></li>
+          </ul>
         </div>
       </div>
     </div>
