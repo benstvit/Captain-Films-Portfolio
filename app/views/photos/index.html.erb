@@ -1,0 +1,14 @@
+<div class="photos-container">
+  <% @photos.each do |photo| %>
+    <div class="photo-container">
+      <div class="photo">
+        <%= cl_image_tag(photo.image.key) %>
+        <div class="photo-description">
+          <%= photo.title %>
+          <%= '🌏' photo.location %>
+          <%= photo.description %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -18,6 +18,7 @@ class ApplicationPolicy
 
   def create?
     raise Pundit::NotAuthorizedError, "must be logged in" if user.nil?
+
     user.admin?
   end
 
@@ -34,6 +35,8 @@ class ApplicationPolicy
   end
 
   def destroy?
+    raise Pundit::NotAuthorizedError, "must be logged in" if user.nil?
+
     user.admin?
   end
 
