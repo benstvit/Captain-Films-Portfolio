@@ -1,6 +1,10 @@
 .navbar-lewagon {
+  flex-direction: column;
   justify-content: space-between;
   background: white;
+  z-index: 1;
+  position: fixed;
+  opacity: 90%;
 }
 
 .navbar-lewagon .navbar-collapse {
