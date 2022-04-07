@@ -17,6 +17,7 @@
     <% if !current_user.nil? && current_user.admin %>
       <%= render 'shared/navbar' %>
     <% end %>
+    <%= render 'shared/banner' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>

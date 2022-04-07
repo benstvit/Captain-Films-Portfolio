@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def contact
+    @user = User.where(id: 1)
+  end
 end

@@ -1,0 +1,17 @@
+.banner {
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#nav > ul > li  {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}

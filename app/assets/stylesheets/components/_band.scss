@@ -4,13 +4,19 @@
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: space-between;
+  text-align: center;
 }
-
+.band-container {
+  margin-top: 20px;
+}
 .band-img img{
   margin-top: 10px;
   width: 100%;
   height: 400px;
   box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.4);
   object-fit: cover;
+}
+
+.band-container h2 {
+  text-align: left;
 }
