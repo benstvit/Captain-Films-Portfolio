@@ -1,0 +1,25 @@
+<div class='form-container'>
+  <h2>Nouvel artiste</h2>
+  <%= simple_form_for @album do |a| %>
+    <%= a.input :name, label: "Nom de l\'album" %>
+    <%= a.input :genre, label: 'genre'%>
+    <%= a.input :release_year, label: 'Date de sortie'%>
+    <%= simple_fields_for :band do |b| %>
+      <% b.input :band, collection: @bands%>
+      <% end %>
+    <%= simple_fields_for :tracks do |t|%>
+      <%= t.input :title, label: 'Nom de la piste'%>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+      <%= t.input :audio, as: :file %>
+    <% end %>
+    <%= a.submit 'Enregistrer nouvel artiste', class: 'btn btn-success' %>
+  <% end %>
+</div>
