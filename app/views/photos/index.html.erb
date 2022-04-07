@@ -1,16 +1,37 @@
 <div class="photos-container background">
   <% @photos.each do |photo| %>
-    <div class="photo-container" data-controller='gallery'>
-      <div class="photo">
-        <%= cl_image_tag(photo.image.key)%>
-        <div class="photo-description">
-          <ul>
-            <li><h3><%= photo.title %></h3></li>
-            <li><%= photo.location %></li>
-            <li class='quote'><%= photo.description %></li>
-          </ul>
-        </div>
-      </div>
+  <div class='photo-container'>
+    <div class="photo">
+      <%= cl_image_tag(photo.image.key, class: 'photo-img')%>
     </div>
+    <div class="photo-description">
+      <ul>
+        <li><h3><%= photo.title %></h3></li>
+        <li><%= photo.location %></li>
+        <li class='quote'><%= photo.description %></li>
+      </ul>
+    </div>
+  </div>
   <% end %>
 </div>
+
+<script>
+  const photos = document.querySelectorAll('.photo-img')
+  const description = document.querySelector('.photo-description')
+
+function widenPhoto(e) {
+  this.classList.toggle('open')
+  photos.forEach((photo) => {
+    const className = photo.getAttribute("class")
+    if (className.includes('open') && photo !== this) {
+      photo.classList.remove('open')
+    }
+  })
+  // console.log(this)
+}
+
+
+photos.forEach(photo => photo.style.flex = 1)
+photos.forEach(photo => photo.addEventListener('click', widenPhoto))
+
+</script>
