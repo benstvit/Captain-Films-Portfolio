@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CaptainFilmsPortfolio</title>
+    <title>Captain Films - Content Creator</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,6 +17,7 @@
     <% if !current_user.nil? && current_user.admin %>
       <%= render 'shared/navbar' %>
     <% end %>
+    <%= render 'shared/banner' %>
     <%= render 'shared/flashes' %>
 
     <%= yield %>

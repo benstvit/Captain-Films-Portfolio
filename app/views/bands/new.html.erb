@@ -1,0 +1,8 @@
+<div class='form-container'>
+  <h2>Nouvel artiste</h2>
+  <%= simple_form_for @band do |f| %>
+    <%= f.input :name, label: "Nom du groupe" %>
+    <%= f.input :image, as: :file %>
+    <%= f.submit 'Enregistrer nouvel artiste', class: 'btn btn-success' %>
+  <% end %>
+</div>

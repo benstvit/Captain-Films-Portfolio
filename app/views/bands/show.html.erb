@@ -1,0 +1,11 @@
+<div class='bands-container'>
+  <div class='band-container'>
+    <h1><%= @band.name %></h1>
+      <div class="band-img">
+        <%= cl_image_tag(@band.image.key) %>
+      </div>
+  <% if policy(:band).destroy? %>
+    <%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-success m-3' %>
+  <% end %>
+  </div>
+</div>

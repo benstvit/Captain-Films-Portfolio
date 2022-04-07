@@ -1,0 +1,15 @@
+<div class='bands-container'>
+  <h1>Music Projects</h1>
+  <%= @bands.each do |band| %>
+    <div class='band-container'>
+      <h2><%= band.name %></h2>
+      <div class="band-img">
+        <%= cl_image_tag(band.image.key) %>
+      </div>
+      <% if policy(:band).destroy? %>
+        <%= link_to "Delete #{band.name}", band_path(band), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-success m-3' %>
+        <%# <%= link_to "Edit#{band.name}", band_path(band), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

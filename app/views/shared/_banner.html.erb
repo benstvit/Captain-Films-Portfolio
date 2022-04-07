@@ -1,0 +1,39 @@
+<div class="banner">
+  <nav id="nav">
+    <ul>
+      <li>
+      <% if params[:controller] == 'photos' %>
+        <%= link_to 'Film Photography 📸', root_path, class:'nav-btn active' %>
+      <% else %>
+        <%= link_to 'Film Photography 📸', root_path, class:'nav-btn' %>
+      <% end %>
+        <%# <ul class="dropdown courses">
+          <li>
+            <span class="code">RFB</span>
+            <a href="https://ReactForBeginners.com">React For Beginners</a>
+          </li>
+          <li>
+            <span class="code">ES6</span>
+            <a href="https://ES6.io">ES6 For Everyone</a>
+          </li>
+          <li>
+            <span class="code">NODE</span>
+            <a href="https://LearnNode.com">Learn Node</a>
+          </li>
+        </ul> %>
+      </li>
+      <li>
+      <% if params[:controller] == 'bands' %>
+        <%= link_to 'Music', bands_path, class:'nav-btn active'%></li>
+      <% else %>
+        <%= link_to 'Music', bands_path, class:'nav-btn'%></li>
+      <% end %>
+      <li><%= link_to 'Play random music', '#', class:'nav-btn' %></li>
+      <% if params[:controller] == 'contact' %>
+        <li><%= link_to 'Contact', '#', class:'nav-btn active' %></li>
+      <% else %>
+        <li><%= link_to 'Contact', '#', class:'nav-btn' %></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

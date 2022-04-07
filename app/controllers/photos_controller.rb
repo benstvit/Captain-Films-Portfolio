@@ -15,7 +15,9 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photos_params)
-    if @photo.save
+    @photo.user = current_user
+
+    if @photo.save!
       redirect_to root_path
     else
       render :new
@@ -40,6 +42,6 @@ class PhotosController < ApplicationController
   end
 
   def photos_params
-    params.require[:photo].permit(:title, :photo)
+    params.require(:photo).permit(:title, :image, :category, :location, :description)
   end
 end
