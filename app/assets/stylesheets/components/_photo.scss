@@ -6,19 +6,21 @@
   overflow: hidden;
   // flex-wrap: wrap;
   justify-content: center;
+  gap: 0px;
   // align-items: center;
 }
 
 .photo-container {
+  // width: calc(100vh / 3);
   display: flex;
   flex-direction: column;
-  // flex: 1 1 0
+  flex: 1
 }
 
 .photo-img {
   display: flex;
   margin-top: 10px;
-  width: calc(100vh / 3);
+  // width: calc(100% / 3);
   height: 420px;
   box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
   transition: all 0.5s;

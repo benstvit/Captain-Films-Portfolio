@@ -1,15 +1,49 @@
 <div class='bands-container'>
   <h1>Music Projects</h1>
   <%= @bands.each do |band| %>
+    <h2><%= band.name %></h2>
     <div class='band-container'>
-      <h2><%= band.name %></h2>
       <div class="band-img">
-        <%= cl_image_tag(band.image.key) %>
+        <%= link_to cl_image_tag(band.image.key), band_path(band) %>
       </div>
+      <div class='band-description slide-in'>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam maxime hic incidunt eveniet, qui quis ducimus autem unde? Quas obcaecati natus quos ea ullam voluptates aliquid, molestiae nam itaque?</p>
+      </div>
+    </div>
       <% if policy(:band).destroy? %>
         <%= link_to "Delete #{band.name}", band_path(band), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-success m-3' %>
-        <%# <%= link_to "Edit#{band.name}", band_path(band), method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
-    </div>
+      <% if policy(:band).update? %>
+        <%= link_to "Edit #{band.name}", band_path(band), method: :update, data: { confirm: "Are you sure?" }, class: 'btn btn-success m-3' %>
+      <% end %>
   <% end %>
 </div>
+
+<script>
+const bandImages = document.querySelectorAll('.band-img')
+const bandDescriptions = document.querySelectorAll('.band-description')
+
+function translate(e) {
+  //TO DO :
+  // si transition en cours, ne pas appliquer
+  // uniquement atteindre le .band-description de l'image cliquée
+
+  if(e.type === 'mouseover') {
+    bandDescriptions.forEach(description => description.classList.remove('no-transition'))
+    this.classList.add('hover')
+    setTimeout(() => {
+      bandDescriptions.forEach(description => description.classList.add('active'))
+    }, 600);
+  } else {
+    bandDescriptions.forEach(description => description.classList.add('no-transition'))
+    bandDescriptions.forEach(description => description.classList.remove('active'))
+    this.classList.remove('hover')
+  }
+
+}
+
+bandImages.forEach(bandImage => bandImage.addEventListener('mouseover', translate))
+bandImages.forEach(bandImage => bandImage.addEventListener('mouseleave', translate))
+
+
+</script>
