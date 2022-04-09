@@ -5,6 +5,10 @@ class BandPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    user.admin?
+  end
+
   def index?
     true
   end

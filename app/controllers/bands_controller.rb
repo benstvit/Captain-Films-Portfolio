@@ -1,5 +1,5 @@
 class BandsController < ApplicationController
-  before_action :find_band, only: [:show, :destroy, :edit, :destroy]
+  before_action :find_band, only: [:show, :destroy, :edit, :update, :destroy]
 
   def index
     @bands = policy_scope(Band)
@@ -33,7 +33,8 @@ class BandsController < ApplicationController
   end
 
   def update
-    @band = Band.update(band_params)
+    @band.update(band_params)
+    authorize @band
     redirect_to band_path(@band)
   end
 
@@ -50,6 +51,6 @@ class BandsController < ApplicationController
   end
 
   def band_params
-    params.require(:band).permit(:name, :image)
+    params.require(:band).permit(:name, :image, :description)
   end
 end

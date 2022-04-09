@@ -1,13 +1,15 @@
 <div class='bands-container'>
   <h1>Music Projects</h1>
+  <% i = 1 %>
   <%= @bands.each do |band| %>
     <h2><%= band.name %></h2>
     <div class='band-container'>
-      <div class="band-img">
+      <div class='band-img' data-id= "<%= band.id %>" >
         <%= link_to cl_image_tag(band.image.key), band_path(band) %>
       </div>
-      <div class='band-description slide-in'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam maxime hic incidunt eveniet, qui quis ducimus autem unde? Quas obcaecati natus quos ea ullam voluptates aliquid, molestiae nam itaque?</p>
+      <div class='band-description slide-in' data-id= "<%= band.id %>">
+        <p><%= band.description %></p>
+        <%# <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam maxime hic incidunt eveniet, qui quis ducimus autem unde? Quas obcaecati natus quos ea ullam voluptates aliquid, molestiae nam itaque?</p> %>
       </div>
     </div>
       <% if policy(:band).destroy? %>
@@ -16,6 +18,7 @@
       <% if policy(:band).update? %>
         <%= link_to "Edit #{band.name}", edit_band_path(band), class: 'btn btn-success m-3' %>
       <% end %>
+      <% i += 1 %>
   <% end %>
 </div>
 
@@ -26,24 +29,26 @@ const bandDescriptions = document.querySelectorAll('.band-description')
 function translate(e) {
   //TO DO :
   // si transition en cours, ne pas appliquer
-  // uniquement atteindre le .band-description de l'image cliquée
-
+  // uniquement atteindre le .band-description de l'image cliquée DONE
   if(e.type === 'mouseover') {
     bandDescriptions.forEach(description => description.classList.remove('no-transition'))
     this.classList.add('hover')
     setTimeout(() => {
-      bandDescriptions.forEach(description => description.classList.add('active'))
+      bandDescriptions.forEach((description) => {
+        if(this.dataset.id === description.dataset.id)
+        description.classList.add('active')
+        })
     }, 600);
-  } else {
-    bandDescriptions.forEach(description => description.classList.add('no-transition'))
-    bandDescriptions.forEach(description => description.classList.remove('active'))
-    this.classList.remove('hover')
+    transitionFinished = true
+  // } else {
+  //   this.classList.remove('hover')
+  //   bandDescriptions.forEach(description => description.classList.add('no-transition'))
+  //   bandDescriptions.forEach(description => description.classList.remove('active'))
   }
-
 }
 
 bandImages.forEach(bandImage => bandImage.addEventListener('mouseover', translate))
-bandImages.forEach(bandImage => bandImage.addEventListener('mouseleave', translate))
+// bandImages.forEach(bandImage => bandImage.addEventListener('mouseleave', translate))
 
 
 </script>

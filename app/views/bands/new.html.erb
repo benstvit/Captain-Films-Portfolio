@@ -3,6 +3,7 @@
   <%= simple_form_for @band do |f| %>
     <%= f.input :name, label: "Nom du groupe" %>
     <%= f.input :image, as: :file %>
+    <%= f.input :description, as: :text %>
     <%= f.submit 'Enregistrer nouvel artiste', class: 'btn btn-success' %>
   <% end %>
 </div>
