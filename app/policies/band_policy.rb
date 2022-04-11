@@ -6,8 +6,11 @@ class BandPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
-  end
+    if user.nil?
+      false
+    else
+      user.admin?
+    end  end
 
   def index?
     true

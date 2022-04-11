@@ -40,6 +40,8 @@
   opacity: 0%;
   height: 200px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   float: right;
   margin-left: 10px;
@@ -63,4 +65,20 @@
 
 .bands-container h2 {
   text-align: left;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sm-link {
+  text-decoration: none;
+  font-size: 40px;
+  margin: 0 20px;
+  color: pink;
+  :hover {
+    color: black;
+  }
 }

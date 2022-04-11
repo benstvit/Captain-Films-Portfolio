@@ -9,7 +9,11 @@
       </div>
       <div class='band-description slide-in' data-id= "<%= band.id %>">
         <p><%= band.description %></p>
-        <%# <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam maxime hic incidunt eveniet, qui quis ducimus autem unde? Quas obcaecati natus quos ea ullam voluptates aliquid, molestiae nam itaque?</p> %>
+        <div class="links">
+          <a class='sm-link' href="<%= band.spotify_url%>" target="_blank" %><i class="fa-brands fa-spotify display2"></i></a>
+          <a class='sm-link' href="<%= band.facebook_url%>" target="_blank" %><i class="fa-brands fa-facebook-square"></i></a>
+          <a class='sm-link' href="<%= band.youtube_url%>" target="_blank" %><i class="fa-brands fa-youtube-square"></i></a>
+        </div>
       </div>
     </div>
       <% if policy(:band).destroy? %>

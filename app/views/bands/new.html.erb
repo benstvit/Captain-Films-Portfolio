@@ -4,6 +4,9 @@
     <%= f.input :name, label: "Nom du groupe" %>
     <%= f.input :image, as: :file %>
     <%= f.input :description, as: :text %>
+    <%= f.input :spotify_url, label: "Url Spotify" %>
+    <%= f.input :facebook_url, label: "Url Facebook" %>
+    <%= f.input :youtube_url, label: "Url Youtube" %>
     <%= f.submit 'Enregistrer nouvel artiste', class: 'btn btn-success' %>
   <% end %>
 </div>

@@ -35,7 +35,7 @@ class BandsController < ApplicationController
   def update
     @band.update(band_params)
     authorize @band
-    redirect_to band_path(@band)
+    redirect_to bands_path
   end
 
   def destroy
@@ -51,6 +51,6 @@ class BandsController < ApplicationController
   end
 
   def band_params
-    params.require(:band).permit(:name, :image, :description)
+    params.require(:band).permit(:name, :image, :description, :spotify_url, :facebook_url, :youtube_url)
   end
 end
