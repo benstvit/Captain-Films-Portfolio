@@ -7,5 +7,9 @@
   <% if policy(:band).destroy? %>
     <%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-success m-3' %>
   <% end %>
+  <% if policy(:band).update? %>
+    <%= link_to "Update #{@band.name}", band_path(@band), method: :update, data: { confirm: "Are you sure?" }, class: 'btn btn-success m-3' %>
+  <% end %>
+
   </div>
 </div>

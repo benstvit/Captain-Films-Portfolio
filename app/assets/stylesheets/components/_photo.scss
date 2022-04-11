@@ -1,24 +1,29 @@
 .photos-container {
-  // padding: 25px;
+  background-color: white;
   min-height: 100vh;
   width: 100%;
   display: flex;
   overflow: hidden;
-  // flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  // align-items: center;
+  gap: 0px;
+  h1 {
+    text-align: center;
+  }
 }
 
 .photo-container {
+  // width: calc(100vh / 3);
   display: flex;
   flex-direction: column;
-  // flex: 1 1 0
+  flex: 1
 }
 
 .photo-img {
   display: flex;
   margin-top: 10px;
-  width: calc(100vh / 3);
+  // width: calc(100% / 3);
   height: 420px;
   box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
   transition: all 0.5s;

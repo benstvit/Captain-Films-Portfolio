@@ -1,5 +1,5 @@
 class BandsController < ApplicationController
-  before_action :find_band, only: [:show, :destroy]
+  before_action :find_band, only: [:show, :destroy, :edit, :update, :destroy]
 
   def index
     @bands = policy_scope(Band)
@@ -29,6 +29,15 @@ class BandsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @band.update(band_params)
+    authorize @band
+    redirect_to bands_path
+  end
+
   def destroy
     @band.destroy
     redirect_to bands_path
@@ -42,6 +51,6 @@ class BandsController < ApplicationController
   end
 
   def band_params
-    params.require(:band).permit(:name, :image)
+    params.require(:band).permit(:name, :image, :description, :spotify_url, :facebook_url, :youtube_url)
   end
 end
