@@ -5,14 +5,17 @@
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
-}
+  background: rgb(98,202,212);
+  background: linear-gradient(0deg, rgba(98,202,212,1) 0%, rgba(255,255,255,1) 84%);
+  }
+
 .band-container {
   margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  margin: 20px;
+  margin: 20px 20px;
 }
 
 .band-img {

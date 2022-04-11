@@ -3,9 +3,9 @@
     <ul>
       <li>
       <% if params[:controller] == 'photos' %>
-        <%= link_to 'Film Photography 📸', root_path, class:'nav-btn active' %>
+        <%= link_to 'FILM PHOTOGRAPHY 📸', root_path, class:'nav-btn active navbar-font' %>
       <% else %>
-        <%= link_to 'Film Photography 📸', root_path, class:'nav-btn' %>
+        <%= link_to 'FILM PHOTOGRAPHY 📸', root_path, class:'nav-btn navbar-font' %>
       <% end %>
         <%# <ul class="dropdown courses">
           <li>
@@ -24,15 +24,15 @@
       </li>
       <li>
       <% if params[:controller] == 'bands' %>
-        <%= link_to 'Music', bands_path, class:'nav-btn active'%></li>
+        <%= link_to 'MUSIC', bands_path, class:'nav-btn active navbar-font'%></li>
       <% else %>
-        <%= link_to 'Music', bands_path, class:'nav-btn'%></li>
+        <%= link_to 'MUSIC', bands_path, class:'nav-btn navbar-font'%></li>
       <% end %>
-      <li><%= link_to 'Play random music 🎵', '#', class:'nav-btn' %></li>
+      <li><%= link_to 'PLAY ME 🎵', '#', class:'nav-btn navbar-font' %></li>
       <% if params[:controller] == 'contact' %>
-        <li><%= link_to 'Contact', '#', class:'nav-btn active' %></li>
+        <li><%= link_to 'CONTACT', '#', class:'nav-btn active navbar-font' %></li>
       <% else %>
-        <li><%= link_to 'Contact', '#', class:'nav-btn' %></li>
+        <li><%= link_to 'CONTACT', '#', class:'nav-btn navbar-font' %></li>
       <% end %>
     </ul>
   </nav>
