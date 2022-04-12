@@ -1,0 +1,24 @@
+<div class='form-container'>
+  <h2>Importer tracks</h2>
+  <div class='number-of-tracks'>
+    <label for="tracks">Nombre de tracks à ajouter ?</label>
+    <input type="number" id="tracks" name="tracks"
+        min="1" max="30">
+  </div>
+  <%= simple_form_for @track do |a| %>
+    <%= a.input :title, label: "Nom de la chanson" %>
+    <% a.input :album_id, collection: @albums, label: "Album de la chanson"%>
+    <%= a.input :audio, as: :file %>
+    <%= a.submit 'Enregistrer', class: 'btn btn-success m-3' %>
+  <% end %>
+</div>
+
+<script>
+  const input = document.querySelector('input')
+  console.log(input)
+
+  function countInputs(e) {
+    console.log(this.value)
+  }
+  input.addEventListener('click', countInputs)
+</script>
