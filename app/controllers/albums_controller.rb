@@ -2,22 +2,22 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
-    @track = Track.new
     @bands = Band.all
     authorize @album
     authorize @bands
-    authorize @track
   end
 
   def create
     @album = Album.new(album_params)
-    @band = Band.where(id: params[:band][:band])
-    @album.band = @band
-    @track = @album.track
-    @band.user = current_user
+    # @band = Band.where(id: params[:band][:band])
+    @album[:band_id] = params[:band][:band]
+    # @album.band = @band
+    # @album.user = current_user
+    authorize @album
+
 
     if @album.save!
-      redirect_to band_path(@band)
+      redirect_to band_path(@album.band)
     else
       render :new
     end

@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
   def new
     @track = Track.new
-    @albums = Track.all
+    @albums = Album.all
     authorize @albums
   end
 

@@ -6,13 +6,7 @@
     <%= a.input :release_year, as: :date, html5: true, label: 'Date de sortie'%>
     <%= simple_fields_for :band do |b| %>
       <% b.input :band, collection: @bands%>
-      <% end %>
-    <div class='tracks-upload'>
-      <%= simple_fields_for :track do |t|%>
-        <%= t.input :title, label: 'Nom de la piste'%>
-        <%= t.input :audio, as: :file %>
-      <% end %>
-    </div>
-    <%= a.submit 'Enregistrer nouvel artiste', class: 'btn btn-success m-3' %>
+    <% end %>
+    <%= a.submit 'Enregistrer nouvel album', class: 'btn btn-success m-3' %>
   <% end %>
 </div>
