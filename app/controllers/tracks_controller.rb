@@ -7,12 +7,13 @@ class TracksController < ApplicationController
 
   def create
     @track = Track.new(tracks_params)
-    @album = Album.where(id: params[:album_id])
-    @track.album = @album
+    @album = Album.where(id: params[:track][:album_id])
+    @album = @track.album
     authorize @track
     authorize @album
+
     if @track.save!
-      redirect_to album_path(@album)
+      redirect_to bands_path(@album.band)
     else
       render :new
     end
