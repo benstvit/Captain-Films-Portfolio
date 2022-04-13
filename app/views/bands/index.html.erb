@@ -2,7 +2,9 @@
   <h1>Music Projects</h1>
   <% i = 1 %>
   <%= @bands.each do |band| %>
-    <h2><%= band.name %></h2>
+    <div class='band-title'>
+      <h2><%= band.name.upcase %></h2>
+    </div>
     <div class='band-container'>
       <div class='band-img' data-id= "<%= band.id %>" >
         <%= link_to cl_image_tag(band.image.key), band_path(band) %>
