@@ -9,16 +9,20 @@
     <%= a.input :title, label: "Nom de la chanson" %>
     <% a.input :album_id, collection: @albums, label: "Album de la chanson"%>
     <%= a.input :audio, as: :file %>
+    <%= a.input :title, label: "Nom de la chanson" %>
+    <% a.input :album_id, collection: @albums, label: "Album de la chanson"%>
+    <%= a.input :audio, as: :file %>
     <%= a.submit 'Enregistrer', class: 'btn btn-success m-3' %>
   <% end %>
 </div>
 
 <script>
   const input = document.querySelector('input')
-  console.log(input)
+  const audio_form = parseInt(document.querySelector('.simple_form'))
 
   function countInputs(e) {
-    console.log(this.value)
+    // Duplicate and give dataset id to each title/album/audio trio and then display or not depending on input.
   }
-  input.addEventListener('click', countInputs)
+
+  input.addEventListener('input', countInputs)
 </script>
