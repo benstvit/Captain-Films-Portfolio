@@ -7,11 +7,11 @@
   </div>
   <%= simple_form_for @track do |a| %>
     <%= a.input :title, label: "Nom de la chanson" %>
-    <% a.input :album_id, collection: @albums, label: "Album de la chanson"%>
+    <%= a.input :album_id, collection: @albums, label: "Album de la chanson"%>
     <%= a.input :audio, as: :file %>
-    <%= a.input :title, label: "Nom de la chanson" %>
-    <% a.input :album_id, collection: @albums, label: "Album de la chanson"%>
-    <%= a.input :audio, as: :file %>
+    <%= a.input :title, label: "Nom de la chanson", data: { id: 1 } %>
+    <%= a.input :album_id, collection: @albums, label: "Album de la chanson", data: { id: 1 }%>
+    <%= a.input :audio, as: :file, data: { id: 1 } %>
     <%= a.submit 'Enregistrer', class: 'btn btn-success m-3' %>
   <% end %>
 </div>
