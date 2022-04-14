@@ -1,6 +1,5 @@
 <div class='bands-container'>
   <h1>Music Projects</h1>
-  <% i = 1 %>
   <%= @bands.each do |band| %>
     <div class='band-title'>
       <h2><%= band.name.upcase %></h2>
@@ -16,6 +15,9 @@
           <a class='sm-link' href="<%= band.facebook_url%>" target="_blank" %><i class="fa-brands fa-facebook-square"></i></a>
           <a class='sm-link' href="<%= band.youtube_url%>" target="_blank" %><i class="fa-brands fa-youtube-square"></i></a>
         </div>
+        <div class="play-music">
+          <button onclick="playSong()" class='nav-btn p-2'> Play random song</button>
+        </div>
       </div>
     </div>
       <% if policy(:band).destroy? %>
@@ -24,19 +26,17 @@
       <% if policy(:band).update? %>
         <%= link_to "Edit #{band.name}", edit_band_path(band), class: 'btn btn-success m-3' %>
       <% end %>
-      <% i += 1 %>
   <% end %>
 </div>
 
 <script>
+// SLIDE IN
 const bandImages = document.querySelectorAll('.band-img')
 const bandDescriptions = document.querySelectorAll('.band-description')
 
 function translate(e) {
-  //TO DO :
-  // si transition en cours, ne pas appliquer
-  // uniquement atteindre le .band-description de l'image cliquée DONE
   if(e.type === 'mouseover') {
+    console.log('hey I m working')
     bandDescriptions.forEach(description => description.classList.remove('no-transition'))
     this.classList.add('hover')
     setTimeout(() => {
@@ -46,15 +46,22 @@ function translate(e) {
         })
     }, 600);
     transitionFinished = true
-  // } else {
-  //   this.classList.remove('hover')
-  //   bandDescriptions.forEach(description => description.classList.add('no-transition'))
-  //   bandDescriptions.forEach(description => description.classList.remove('active'))
   }
 }
 
 bandImages.forEach(bandImage => bandImage.addEventListener('mouseover', translate))
-// bandImages.forEach(bandImage => bandImage.addEventListener('mouseleave', translate))
 
+// MUSIC PLAY
+
+const playButton = document.querySelector('.play-btn')
+
+function playSong(e) {
+  // const audio =
+  // audio.play()
+  // console.log(e)
+  // playButton.classList.toggle('playing')
+}
+
+playButton.addEventListener('click', playSong)
 
 </script>

@@ -8,6 +8,10 @@ class ApplicationPolicy
     @record = record
   end
 
+  def random_song?
+    true
+  end
+
   def index?
     false
   end
