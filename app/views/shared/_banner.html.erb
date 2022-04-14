@@ -28,7 +28,7 @@
       <% else %>
         <%= link_to 'MUSIC', bands_path, class:'nav-btn navbar-font'%></li>
       <% end %>
-      <li><%= link_to 'HIT ME TO PLAY 🎵', '#', class:'nav-btn navbar-font' %></li>
+      <li><%= link_to cl_video_tag(random_song, controller: true), '#', class:'nav-btn navbar-font' %></li>
       <% if params[:controller] == 'contact' %>
         <li><%= link_to 'CONTACT', '#', class:'nav-btn active navbar-font' %></li>
       <% else %>

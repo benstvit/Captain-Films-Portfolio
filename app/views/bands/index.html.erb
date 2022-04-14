@@ -17,7 +17,7 @@
           <a class='sm-link' href="<%= band.youtube_url%>" target="_blank" %><i class="fa-brands fa-youtube-square"></i></a>
         </div>
         <div class="play-music">
-          <button onclick="playSong()" class='nav-btn play-btn'><% cl_audio_tag(band.albums.first.tracks, controls: true)  %></button>
+          <button onclick="playSong()" class='nav-btn play-btn'><% cl_video_tag(band.albums.first.tracks, controls: true)  %></button>
         </div>
       </div>
     </div>

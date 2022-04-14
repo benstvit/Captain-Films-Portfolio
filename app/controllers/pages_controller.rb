@@ -7,4 +7,5 @@ class PagesController < ApplicationController
   def contact
     @user = User.where(id: 1)
   end
+
 end

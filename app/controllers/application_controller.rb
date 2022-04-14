@@ -13,6 +13,13 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
+  def random_song
+    @tracks = Track.all
+    @song = @tracks.sample(1)
+    authorize @song
+    return @song
+  end
+
   private
 
   def skip_pundit?
