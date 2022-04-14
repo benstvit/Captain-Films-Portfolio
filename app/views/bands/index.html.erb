@@ -1,6 +1,5 @@
 <div class='bands-container'>
   <h1>Music Projects</h1>
-  <% i = 1 %>
   <%= @bands.each do |band| %>
     <div class='band-title'>
       <h2><%= band.name.upcase %></h2>
@@ -17,7 +16,7 @@
           <a class='sm-link' href="<%= band.youtube_url%>" target="_blank" %><i class="fa-brands fa-youtube-square"></i></a>
         </div>
         <div class="play-music">
-          <button onclick="playSong()" class='nav-btn play-btn'><% cl_video_tag(band.albums.first.tracks, controls: true)  %></button>
+          <button onclick="playSong()" class='nav-btn p-2'> Play random song</button>
         </div>
       </div>
     </div>
@@ -27,7 +26,6 @@
       <% if policy(:band).update? %>
         <%= link_to "Edit #{band.name}", edit_band_path(band), class: 'btn btn-success m-3' %>
       <% end %>
-      <% i += 1 %>
   <% end %>
 </div>
 
@@ -38,6 +36,7 @@ const bandDescriptions = document.querySelectorAll('.band-description')
 
 function translate(e) {
   if(e.type === 'mouseover') {
+    console.log('hey I m working')
     bandDescriptions.forEach(description => description.classList.remove('no-transition'))
     this.classList.add('hover')
     setTimeout(() => {
@@ -57,10 +56,10 @@ bandImages.forEach(bandImage => bandImage.addEventListener('mouseover', translat
 const playButton = document.querySelector('.play-btn')
 
 function playSong(e) {
-  const audio =
-  audio.play()
-  console.log(e)
-  playButton.classList.toggle('playing')
+  // const audio =
+  // audio.play()
+  // console.log(e)
+  // playButton.classList.toggle('playing')
 }
 
 playButton.addEventListener('click', playSong)
