@@ -26,3 +26,18 @@ a.nav-btn:hover {
   width: fit-content;
   display: inline-block;
 }
+
+.play-btn {
+  padding: 28px;
+  background: none;
+  transform: scale(0.95);
+  transition:all 0.3s, opacity 0.3s ease;
+  opacity: 0.4;
+  text-decoration: none;
+  border: 1px solid #000000!important;
+}
+
+.play-btn.active {
+  background-color: rgba($color: pink, $alpha: 0.8);
+  opacity: 0.6;
+}

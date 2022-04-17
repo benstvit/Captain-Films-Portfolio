@@ -16,7 +16,7 @@
           <a class='sm-link' href="<%= band.youtube_url%>" target="_blank" %><i class="fa-brands fa-youtube-square"></i></a>
         </div>
         <div class="play-music">
-          <button onclick="playSong()" class='nav-btn p-2'> Play random song</button>
+          <%# <button onclick="playSong()" class='nav-btn p-2'> Play random song</button> %>
         </div>
       </div>
     </div>
@@ -50,18 +50,5 @@ function translate(e) {
 }
 
 bandImages.forEach(bandImage => bandImage.addEventListener('mouseover', translate))
-
-// MUSIC PLAY
-
-const playButton = document.querySelector('.play-btn')
-
-function playSong(e) {
-  // const audio =
-  // audio.play()
-  // console.log(e)
-  // playButton.classList.toggle('playing')
-}
-
-playButton.addEventListener('click', playSong)
 
 </script>

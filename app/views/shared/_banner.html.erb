@@ -28,7 +28,11 @@
       <% else %>
         <%= link_to 'MUSIC', bands_path, class:'nav-btn navbar-font'%></li>
       <% end %>
-      <li><%= link_to 'Play Me 🎵', '#', class:'nav-btn navbar-font play-btn' %></li>
+      <li>
+        <%# <%= link_to 'Play Me', '#', class:'nav-btn navbar-font play-btn'  %>
+        <input type="button" value="Play me 🔊" class = 'nav-btn navbar-font play-btn'>
+        <audio id="audio-navbar" src="https://res.cloudinary.com/benstvit/video/upload/v1649850611/development/4vli2dz4s49rl0zwpabfjm5st4va.mp3"></audio>
+      </li>
       <% if params[:controller] == 'contact' %>
         <li><%= link_to 'CONTACT', '#', class:'nav-btn active navbar-font' %></li>
       <% else %>
@@ -39,16 +43,27 @@
 </div>
 
 <script>
-  // const playButton = document.querySelector('.play-btn')
+  const audioNavbar = document.getElementById("audio-navbar");
+  const playButtonNavbar = document.querySelector('.play-btn')
 
-  // function playSong(e) {
-  //   console.log('should play')
-  //   // audio.play()
-  //   // console.log(e)
-  //   // playButton.classList.toggle('playing')
-  //   // cl_video_tag(random_song, controller: true)
-  // }
+  function playSong(e) {
+    if(audioNavbar.paused) {
+      audioNavbar.play()
+      this.classList.add('active')
+    } else {
+      audioNavbar.pause()
+      this.classList.remove('active')
+    }
+  }
 
-  // playButton.addEventListener('click', playSong)
+  function playingDesign(e) {
+    if(this.classList.contains('active')) {
+      this.value = 'Pause me 🔇'
+    } else {
+      this.value = 'Play me 🔊'
+    }
+  }
+  playButtonNavbar.addEventListener('click', playSong)
+  playButtonNavbar.addEventListener('click', playingDesign)
 
 </script>
