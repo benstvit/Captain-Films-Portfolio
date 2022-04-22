@@ -17,7 +17,9 @@ class ApplicationController < ActionController::Base
   def random_song
     @tracks = Track.all
     @random_song = @tracks.sample(1)
-    return @random_song
+    @path = CloudinaryHelper.cl_video_path(@random_song)
+
+    return @path
   end
 
   private
