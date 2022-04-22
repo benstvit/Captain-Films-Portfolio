@@ -20,9 +20,9 @@
         </li>
         <li class='contact'>
           <% if params[:controller] == 'contact' %>
-            <%= link_to 'CONTACT', '#', class:'nav-btn active navbar-font' %>
+            <%= link_to 'CONTACT', new_contact_path , class:'nav-btn active navbar-font' %>
           <% else %>
-            <%= link_to 'CONTACT', '#', class:'nav-btn navbar-font' %>
+            <%= link_to 'CONTACT', new_contact_path , class:'nav-btn navbar-font' %>
           <% end %>
         </li>
     </ul>
