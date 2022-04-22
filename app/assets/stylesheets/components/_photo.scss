@@ -1,13 +1,15 @@
 .photos-container {
-  background-color: white;
+  background: rgb(98,202,212);
+  background: linear-gradient(0deg, rgba(98,202,212,1) 0%, rgba(255,255,255,1) 84%);
   min-height: 100vh;
   width: 100%;
+  margin-top: 35px;
   display: flex;
   overflow: hidden;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
-  gap: 0px;
+  flex-wrap: wrap;
+  gap: 12px;
   h1 {
     text-align: center;
   }
@@ -17,31 +19,49 @@
   // width: calc(100vh / 3);
   display: flex;
   flex-direction: column;
-  flex: 1
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  z-index: 1;
+  flex: 1;
+  width: 500px;
+  height: 500px;
+  // transition: all 0.2s;
+}
+
+.photo.odd {
+  box-shadow:
+  3px 3px #53a7ea,
+  2px 2px #53a7ea,
+  3px 3px #53a7ea;
+  transform: translateX(-10px);
+}
+
+.photo.even {
+  box-shadow:
+  3px 3px #53a7ea,
+  2px 2px #53a7ea,
+  3px 3px #53a7ea;
+  transform: translateX(10px);
 }
 
 .photo-img {
-  display: flex;
-  margin-top: 10px;
-  // width: calc(100% / 3);
-  height: 420px;
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
-  transition: all 0.5s;
+  width: 100%;
   object-fit: cover;
-  opacity: 98%;
 }
 
-.photo-img.open {
-  flex: 5;
-  width: 670px;
+.photo.open {
+  flex: 2;
+  width: 1000px;
   margin-top: 10px;
-  height: 420px;
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+  height: auto;
   opacity: 100%;
 }
 
 .photo-description ul {
-  z-index: 1;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;

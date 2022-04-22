@@ -1,23 +1,27 @@
-<div class="photos-container background">
-<h1>Film Photography</h1>
-  <% @photos.each do |photo| %>
-  <div class='photo-container'>
-    <div class="photo">
-      <%= cl_image_tag(photo.image.key, class: 'photo-img')%>
+<div class='bands-container'>
+  <h1>Film Photography</h1>
+  <div class="photos-container background">
+    <% counter = 1 %>
+    <% @photos.each do |photo| %>
+    <div class='photo-container'>
+      <div class="photo" data-id="<%=counter%>">
+        <%= cl_image_tag(photo.image.key, class: 'photo-img')%>
+      </div>
+      <div class="photo-description">
+        <ul>
+          <li><h3><%= photo.title %></h3></li>
+          <li><%= photo.location %></li>
+          <li class='quote'><%= photo.description %></li>
+        </ul>
+      </div>
     </div>
-    <div class="photo-description">
-      <ul>
-        <li><h3><%= photo.title %></h3></li>
-        <li><%= photo.location %></li>
-        <li class='quote'><%= photo.description %></li>
-      </ul>
-    </div>
+    <% counter += 1 %>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 <script>
-  const photos = document.querySelectorAll('.photo-img')
+  const photos = document.querySelectorAll('.photo')
   const description = document.querySelector('.photo-description')
 
 function widenPhoto(e) {
@@ -28,11 +32,27 @@ function widenPhoto(e) {
       photo.classList.remove('open')
     }
   })
-  // console.log(this)
+}
+
+function hoverPhoto(e) {
+  if (this.dataset.id % 2 === 0){
+    this.classList.add('even')
+  } else {
+    this.classList.add('odd')
+  }
+}
+function leavePhoto(e) {
+  if (this.dataset.id % 2 === 0){
+    this.classList.remove('even')
+  } else {
+    this.classList.remove('odd')
+  }
 }
 
 
 photos.forEach(photo => photo.style.flex = 1)
 photos.forEach(photo => photo.addEventListener('click', widenPhoto))
+photos.forEach(photo => photo.addEventListener('mouseover', hoverPhoto))
+photos.forEach(photo => photo.addEventListener('mouseleave', leavePhoto))
 
 </script>
