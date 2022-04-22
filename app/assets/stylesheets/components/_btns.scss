@@ -36,6 +36,12 @@ a.nav-btn:hover {
   text-decoration: none;
   border: 1px solid #000000!important;
 }
+.play-btn:hover {
+  opacity: 1;
+  text-decoration: none;
+  background-color: white;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.3);
+}
 
 .play-btn.active {
   background-color: rgba($color: pink, $alpha: 0.8);
