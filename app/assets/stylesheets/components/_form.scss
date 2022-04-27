@@ -3,6 +3,25 @@
   text-align: left;
   width: 50%;
   padding: 20px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.contact-form {
+padding: 20px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: start;
+}
+
+.contact-form > .label {
+  font-family: 'Lato', sans-serif;
+}
+.contact-form-text-area {
+  margin: 5px;
 }
 
 .tracks-upload {
